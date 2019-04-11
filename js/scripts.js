@@ -40,3 +40,15 @@ Player.prototype.scoreCheck=function(){
     return "You Won";
   }
 };
+
+
+$(document).ready(function(){
+  $("#form-names").submit(function(event){
+    event.preventDefault();
+
+    var player1Name = $("#player1-name").val();
+    var player2Name = $("#player2-name").val();
+
+    // alert("Player1: " + player1Name + " Player2: " + player2Name);
+  });
+});
