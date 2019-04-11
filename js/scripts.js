@@ -29,7 +29,8 @@ Player.prototype.roundUpdater=function(score){
 
 Player.prototype.stop=function(){
   this.roundScore = _.reduce(this.turnScore, function (memo, num) { return memo + num; }, 0);
-  this.score += this.roundScore;  
+  this.score += this.roundScore;
+  return this.roundScore;  
 };
 
 Player.prototype.newTurn=function(){
@@ -60,4 +61,27 @@ $(document).ready(function(){
 
     $("#form-names").hide();
   });
+
+  //Player1 roll and hold
+  $("#roll1").click(function(){
+    var rollDice=player1.rollDie();
+    
+    $(".player1-roll-scores").text(" " + player1.roundUpdater(rollDice));
+    $(".player1-turn-score").text(" " + player1.stop());
+    $(".player1-total-score").text(" " + player1.score);
+
+    
+  });
+  $("#hold1").click(function () {
+
+  });
+
+  //Player2 roll and hold
+  $("#roll2").click(function () {
+
+  });
+  $("#hold2").click(function () {
+
+  });
+
 });
