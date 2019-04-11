@@ -51,6 +51,10 @@ Player.prototype.scoreCheck=function(){
 
 
 $(document).ready(function(){
+  $(".game-display").hide();
+  $(".buttons1").hide();
+  $(".buttons2").hide();
+
   var player1;
   var player2;
 
@@ -66,6 +70,9 @@ $(document).ready(function(){
     $(".name1").text(player1Name);
     $(".name2").text(player2Name);
 
+    $(".game-display").fadeIn("slow");
+    $(".buttons1").fadeIn("slow");
+
     $("#form-names").hide();
   });
 
@@ -79,8 +86,13 @@ $(document).ready(function(){
     $(".player1-total-score").text(" " + player1.score);
 
     if (updater === "You Hit 1"){
-      $(".buttons1").fadeOut("slow");
-      $(".buttons2").fadeIn("slow");
+
+      $('.enableOnInput').prop('disabled', true);
+
+
+
+      $(".buttons1").hide();
+      $(".buttons2").show();
     }
     
     var winner=player1.scoreCheck();
@@ -108,8 +120,8 @@ $(document).ready(function(){
       $(".player2-roll-scores").text("");
     }
      else {
-      $(".buttons1").fadeOut("slow");
-      $(".buttons2").fadeIn("slow");
+      $(".buttons1").hide();
+      $(".buttons2").show();
     }
   });
 
@@ -123,8 +135,8 @@ $(document).ready(function(){
     $(".player2-total-score").text(" " + player2.score);
 
     if (updater === "You Hit 1") {
-      $(".buttons2").fadeOut("slow");
-      $(".buttons1").fadeIn("slow");
+      $(".buttons2").hide();
+      $(".buttons1").show();
     }
 
     var winner = player2.scoreCheck();
@@ -150,8 +162,8 @@ $(document).ready(function(){
       $(".player2-roll-scores").text("");
     }
     else {
-      $(".buttons2").fadeOut("slow");
-      $(".buttons1").fadeIn("slow");
+      $(".buttons2").hide();
+      $(".buttons1").show();
     }
   });
 
