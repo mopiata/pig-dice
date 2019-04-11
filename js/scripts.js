@@ -27,10 +27,14 @@ Player.prototype.roundUpdater=function(score){
   }
 };
 
-Player.prototype.stop=function(){
+Player.prototype.continue=function(){
   this.roundScore = _.reduce(this.turnScore, function (memo, num) { return memo + num; }, 0);
+  return this.roundScore;
+};
+
+Player.prototype.stop=function(){
   this.score += this.roundScore;
-  return this.roundScore;  
+  return this.score;  
 };
 
 Player.prototype.newTurn=function(){
@@ -67,13 +71,35 @@ $(document).ready(function(){
     var rollDice=player1.rollDie();
     
     $(".player1-roll-scores").text(" " + player1.roundUpdater(rollDice));
-    $(".player1-turn-score").text(" " + player1.stop());
+    $(".player1-turn-score").text(" " + player1.continue());
     $(".player1-total-score").text(" " + player1.score);
 
+    // if (rollDice === "You Hit 1"){
+    //   $(".buttons1").fadeOut("slow");
+    //   $(".buttons2").fadeIn("slow");
+    // }
     
+    var winner=player1.scoreCheck();
   });
-  $("#hold1").click(function () {
 
+  
+  $("#hold1").click(function () {
+    player1.stop();
+    // $(".player1-roll-scores").text(0);
+    // $(".player1-turn-score").text(0);
+    $(".player1-total-score").text(" " + player1.score);
+
+    var winner = player1.scoreCheck();
+
+    if (winner === "You Won"){
+      alert("congratulations "+player1.name);
+      player1.newGame();
+      player2.newGame();
+      $(".player1-turn-score").text(" " + player1.roundScore);
+      $(".player1-total-score").text(" " + player1.score);
+      $(".player2-turn-score").text(" " + player1.roundScore);
+      $(".player2-total-score").text(" " + player1.score);
+    }
   });
 
   //Player2 roll and hold
