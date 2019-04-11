@@ -1,6 +1,6 @@
 //business logic
 //create Player constructor
-function Player(name,score){
+function Player(name, roundScore, score){
   this.name=name;
   this.score=score;
   this.turnScore=[];
@@ -43,12 +43,21 @@ Player.prototype.scoreCheck=function(){
 
 
 $(document).ready(function(){
+  var player1;
+  var player2;
+
   $("#form-names").submit(function(event){
     event.preventDefault();
 
     var player1Name = $("#player1-name").val();
     var player2Name = $("#player2-name").val();
 
-    // alert("Player1: " + player1Name + " Player2: " + player2Name);
+    player1 = new Player(player1Name,0,0);
+    player2 = new Player(player2Name,0,0);
+
+    $(".name1").text(player1Name);
+    $(".name2").text(player2Name);
+
+    $("#form-names").hide();
   });
 });
