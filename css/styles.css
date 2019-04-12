@@ -5,5 +5,24 @@ body{
 .game-console{
   background-color: pink;
   padding: 3rem;
-  border-radius: 5px
+  border-radius: 5px;
+  display: none;
+}
+#logo{
+  height:5rem;
+}
+.myNav{
+  padding-left: 5rem;
+  padding-right: 10rem;
+}
+#form-names{
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#form-names h3{
+  color:white;
+}
+label{
+  color: white;
 }

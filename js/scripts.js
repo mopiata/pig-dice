@@ -8,15 +8,15 @@ function Player(name, roundScore, score){
 };
 
 Player.prototype.newGame=function(){
-  this.roundScore=0;
-  this.score = 0;
-  this.turnScore=[];
+  location.reload();
 };
 
 Player.prototype.rollDie=function(){
   var diceScore = Math.floor(Math.random() * 6) + 1  ;
   return diceScore;
 };
+
+
 
 //to pass result of rollDie() function
 Player.prototype.roundUpdater=function(score){
@@ -29,6 +29,22 @@ Player.prototype.roundUpdater=function(score){
     return "You Hit 1";
   }
 };
+
+Player.prototype.showDie=function(score){
+  if(score===1){
+    document.getElementById("diceShow").innerHTML = '<img src="img/one.png" alt="1">';
+  } else if (score === 2) {
+    document.getElementById("diceShow").innerHTML = '<img src="img/two.png" alt="2">';
+  } else if (score === 3) {
+    document.getElementById("diceShow").innerHTML = '<img src="img/three.png" alt="3">';
+  } else if (score === 4) {
+    document.getElementById("diceShow").innerHTML = '<img src="img/four.png" alt="4">';
+  } else if (score === 5) {
+    document.getElementById("diceShow").innerHTML = '<img src="img/five.png" alt="5">';
+  } else {
+    document.getElementById("diceShow").innerHTML = '<img src="img/six.png" alt="6">';
+  }
+}
 
 Player.prototype.continue=function(){
   this.roundScore = _.reduce(this.turnScore, function (memo, num) { return memo + num; }, 0);
@@ -51,18 +67,29 @@ Player.prototype.scoreCheck=function(){
 
 
 $(document).ready(function(){
-  $(".game-display").hide();
+  
   $(".buttons1").hide();
   $(".buttons2").hide();
 
   var player1;
   var player2;
 
+  $('.new').click(function () {
+    location.reload();
+  });
+
   $("#form-names").submit(function(event){
     event.preventDefault();
 
     var player1Name = $("#player1-name").val();
     var player2Name = $("#player2-name").val();
+      
+      if(player1Name === ""){
+        player1Name="Player 1";
+      }
+      if (player2Name === "") {
+        player2Name = "Player 2";
+      }
 
     player1 = new Player(player1Name,0,0);
     player2 = new Player(player2Name,0,0);
@@ -70,7 +97,7 @@ $(document).ready(function(){
     $(".name1").text(player1Name);
     $(".name2").text(player2Name);
 
-    $(".game-display").fadeIn("slow");
+    $(".game-console").fadeIn("slow");
     $(".buttons1").fadeIn("slow");
 
     $("#form-names").hide();
@@ -80,6 +107,8 @@ $(document).ready(function(){
   $("#roll1").click(function(){
     var rollDice=player1.rollDie();
     var updater = player1.roundUpdater(rollDice);
+    var showDie1 = player1.showDie(rollDice);
+    
     
     $(".player1-roll-scores").text(" " + updater);
     $(".player1-turn-score").text(" " + player1.continue());
@@ -110,14 +139,7 @@ $(document).ready(function(){
 
     if (winner === "You Won"){
       alert("Congratulations "+player1.name+ "!");
-      player1.newGame();
-      player2.newGame();
-      $(".player1-turn-score").text(" " + player1.roundScore);
-      $(".player1-total-score").text(" " + player1.score);
-      $(".player1-turn-score").text(" " + player1.roundScore);
-      $(".player2-total-score").text(" " + player1.score);
-      $(".player2-roll-scores").text("");
-      $(".player2-roll-scores").text("");
+      location.reload();
     }
      else {
       $(".buttons1").hide();
@@ -129,7 +151,9 @@ $(document).ready(function(){
   $("#roll2").click(function () {
     var rollDice = player2.rollDie();
     var updater = player2.roundUpdater(rollDice);
+    var showDie2 = player2.showDie(rollDice);
 
+    
     $(".player2-roll-scores").text(" " + updater);
     $(".player2-turn-score").text(" " + player2.continue());
     $(".player2-total-score").text(" " + player2.score);
@@ -152,14 +176,7 @@ $(document).ready(function(){
 
     if (winner === "You Won") {
       alert("Congratulations " + player2.name + "!");
-      player1.newGame();
-      player2.newGame();
-      $(".player1-turn-score").text(" " + player1.roundScore);
-      $(".player1-total-score").text(" " + player1.score);
-      $(".player1-turn-score").text(" " + player1.roundScore);
-      $(".player2-total-score").text(" " + player1.score);
-      $(".player2-roll-scores").text("");
-      $(".player2-roll-scores").text("");
+      location.reload();
     }
     else {
       $(".buttons2").hide();

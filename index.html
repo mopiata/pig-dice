@@ -12,15 +12,38 @@
   <title>Pig Dice Game</title>
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light myNav">
+    <a class="navbar-brand" href="#"><img src="img/logo.jpg" alt="logo" id="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <h1>PIGDICE</h1>
+        </li>
+      </ul> 
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-info my-2 my-sm-0 new" type="submit"><strong>New Game</strong></button>
+      </form>
+    </div>
+  </nav>
+
   <div class="container">
     <form id="form-names">
+      <br>
+      <h3>Enter your names to start:</h3>
+      <br>
       <div class="form-group">
         <label for="player1-name">Player 1</label>
-        <input type="text" class="form-control" id="player1-name">
+        <input type="text" class="form-control" id="player1-name" placeholder="Player 1">
       </div>
       <div class="form-group">
         <label for="player2-name">Player 2</label>
-        <input type="text" class="form-control" id="player2-name">
+        <input type="text" class="form-control" id="player2-name" placeholder="Player 2">
       </div>
       <button type="submit" class="btn btn-light" id="submit-names">Enter</button>
     </form>
@@ -37,9 +60,11 @@
             <h4>ROLL SCORES: <span class="player1-roll-scores"></span></h4>
           </div>
         </div>
-        <div class="col-sm-4">
+
+        <div class="col-sm-4" id="diceShow">
         
         </div>
+
         <div class="col-sm-4">
           <h2 class="name2"></h2>
           <h4>TURN SCORE: <span class="player2-turn-score"></span></h4>
@@ -54,8 +79,8 @@
       <div class="row play-controls">
         <div class="col-sm-4">
           <div class="buttons1">
-            <button type="button" id="roll1" class="btn btn-success">Roll Die</button>
-            <button type="button" id="hold1" class="btn btn-danger">Hold Turn</button>
+            <button type="button" id="roll1" class="btn btn-info">Roll Die</button>
+            <button type="button" id="hold1" class="btn btn-info">Hold Turn</button>
           </div>
         </div>
         <div class="col-sm-4">
@@ -63,8 +88,8 @@
         </div>
         <div class="col-sm-4">
           <div class="buttons2">
-            <button type="button" id="roll2" class="btn btn-success">Roll Die</button>
-            <button type="button" id="hold2" class="btn btn-danger">Hold Turn</button>
+            <button type="button" id="roll2" class="btn btn-info">Roll Die</button>
+            <button type="button" id="hold2" class="btn btn-info">Hold Turn</button>
           </div>
         </div>
       </div>
