@@ -98,7 +98,7 @@ $(document).ready(function(){
 
     $(".game-console").fadeIn("slow");
     $(".buttons1").fadeIn("slow");
-
+    $(".name1").addClass("btn-info");
     $("#form-names").hide();
   });
 
@@ -116,6 +116,8 @@ $(document).ready(function(){
     if (updater === "You Hit 1"){
       $(".buttons1").hide();
       $(".buttons2").show();
+      $(".name2").addClass("btn-info");
+      $(".name1").removeClass("btn-info");
     }
     
     var winner=player1.scoreCheck();
@@ -136,8 +138,11 @@ $(document).ready(function(){
       location.reload();
     }
      else {
+      
       $(".buttons1").hide();
       $(".buttons2").show();
+      $(".name2").addClass("btn-info");
+      $(".name1").removeClass("btn-info");
     }
   });
 
@@ -155,6 +160,8 @@ $(document).ready(function(){
     if (updater === "You Hit 1") {
       $(".buttons2").hide();
       $(".buttons1").show();
+      $(".name1").addClass("btn-info");
+      $(".name2").removeClass("btn-info");
     }
 
     var winner = player2.scoreCheck();
@@ -175,6 +182,8 @@ $(document).ready(function(){
     else {
       $(".buttons2").hide();
       $(".buttons1").show();
+      $(".name1").addClass("btn-info");
+      $(".name2").removeClass("btn-info");
     }
   });
 
