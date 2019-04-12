@@ -1,6 +1,7 @@
 body{
   background-image: url(../img/dicethrow.jpg);
   background-size: cover;
+  font-family: 'VT323', monospace;
 }
 .game-console{
   background-color: #fee4f1;
@@ -40,4 +41,7 @@ label{
 .player-container{
   background-color: #
   border-radius: 5px;
+}
+.new{
+  font-size: 25px;
 }
