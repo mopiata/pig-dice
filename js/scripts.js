@@ -16,8 +16,6 @@ Player.prototype.rollDie=function(){
   return diceScore;
 };
 
-
-
 //to pass result of rollDie() function
 Player.prototype.roundUpdater=function(score){
   if(score!==1){
@@ -30,6 +28,7 @@ Player.prototype.roundUpdater=function(score){
   }
 };
 
+//to pass result of rollDie() function
 Player.prototype.showDie=function(score){
   if(score===1){
     document.getElementById("diceShow").innerHTML = '<img src="img/one.png" alt="1">';
@@ -115,11 +114,6 @@ $(document).ready(function(){
     $(".player1-total-score").text(" " + player1.score);
 
     if (updater === "You Hit 1"){
-
-      $('.enableOnInput').prop('disabled', true);
-
-
-
       $(".buttons1").hide();
       $(".buttons2").show();
     }

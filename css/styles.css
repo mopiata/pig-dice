@@ -3,10 +3,13 @@ body{
   background-size: cover;
 }
 .game-console{
-  background-color: pink;
-  padding: 3rem;
+  background-color: #fee4f1;
   border-radius: 5px;
   display: none;
+  padding: 3rem;
+}
+.game-display{
+  margin-bottom: 10px;
 }
 #logo{
   height:5rem;
@@ -25,4 +28,16 @@ body{
 }
 label{
   color: white;
+}
+#diceShow{
+  background-color: transparent;
+}
+#diceShow img{
+  margin-left: auto;
+  margin-right: auto;
+  width:auto;
+}
+.player-container{
+  background-color: #
+  border-radius: 5px;
 }
