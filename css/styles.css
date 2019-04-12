@@ -1,0 +1,9 @@
+body{
+  background-image: url(../img/dicethrow.jpg);
+  background-size: cover;
+}
+.game-console{
+  background-color: pink;
+  padding: 3rem;
+  border-radius: 5px
+}

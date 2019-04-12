@@ -35,7 +35,7 @@ Player.prototype.continue=function(){
   return this.roundScore;
 };
 
-Player.prototype.stop=function(){
+Player.prototype.hold=function(){
   this.score += this.roundScore;
   return this.score;  
 };
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
   
   $("#hold1").click(function () {
-    player1.stop();
+    player1.hold();
     player1.newTurn();
     $(".player1-roll-scores").text(" " + player1.turnScore);
     $(".player1-turn-score").text(0);
@@ -142,7 +142,7 @@ $(document).ready(function(){
     var winner = player2.scoreCheck();
   });
   $("#hold2").click(function () {
-    player2.stop();
+    player2.hold();
     player2.newTurn();
     $(".player2-roll-scores").text(" " + player2.turnScore);
     $(".player2-turn-score").text(0);
