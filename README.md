@@ -20,7 +20,7 @@ This web application allows two players to play a game of Pig Dice.
 
 ## Setup/Installation Requirements
 
-* Follow the link for the live site:
+* Follow the link for the live site: https://mopiata.github.io/pig-dice/
 
 OR 
 
